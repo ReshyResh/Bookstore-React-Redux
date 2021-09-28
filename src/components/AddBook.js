@@ -12,7 +12,7 @@ const AddBook = () => {
       title: parent.title.value,
       author: parent.author.value,
       genre: parent.genre.value,
-      progress: 30,
+      progress: 0,
     };
     dispatch(addBook(newBook));
   };
@@ -20,8 +20,8 @@ const AddBook = () => {
   return (
     <div>
       <form id="form-add">
-        <input type="text" name="title" placeholder="title" />
-        <input type="text" name="author" placeholder="author" />
+        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="author" placeholder="Author" />
         <label htmlFor="genre">Genre:</label> {/*eslint-disable-line*/}
         <select id="genre" name="genre">
           <option value="Action">Action</option>
@@ -29,7 +29,7 @@ const AddBook = () => {
           <option value="Economy">Economy</option>
           <option value="Horror">Horror</option>
         </select>
-        <button onClick={submitBookToStore} type="button">Add Book</button>
+        <button className="delete-book" onClick={submitBookToStore} type="button">Add Book</button>
       </form>
     </div>
   );
