@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
-import { removeBook, editBook } from '../redux/books/books';
+import { removeBook, modal } from '../redux/books/books';
 import ProgressBar from './ProgressBar';
 
 const BookInfo = (props) => {
@@ -18,7 +18,7 @@ const BookInfo = (props) => {
         className="delete-book"
         type="button"
         onClick={() => {
-          dispatch(removeBook(book));
+          dispatch(removeBook(book.id));
         }}
       >
         {' '}
@@ -28,8 +28,9 @@ const BookInfo = (props) => {
         className="delete-book"
         type="button"
         onClick={() => {
-          const newperc = prompt('Enter new percentage');
-          dispatch(editBook({ book, newperc }));
+          // const newperc = prompt('Enter new percentage');
+          // dispatch(editBook({ book, newperc }));
+          dispatch(modal({ display: false }, { book }));
         }}
       >
         {' '}

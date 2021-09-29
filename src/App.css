@@ -81,3 +81,7 @@ svg {
   margin-bottom: 20px;
   height: 20px;
 }
+
+.invisible {
+  display: none;
+}
