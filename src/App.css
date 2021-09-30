@@ -2,11 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .navBar {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
+  height: 80px;
+  align-items: center;
+  padding-left: 30px;
+  flex-wrap: wrap;
 }
 
 .navlist {
@@ -14,6 +19,27 @@
   flex-flow: row;
   justify-content: space-around;
   list-style-type: none;
+  margin: auto;
+}
+
+.navlist > li {
+  margin-right: 30px;
+  font-size: 1.2em;
+}
+
+.navlist > li > a {
+  text-decoration: none;
+  color: rgba(71, 71, 71, 0.486);
+}
+
+.active-link {
+  color: rgba(37, 38, 39, 0.808) !important;
+}
+
+.percent {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 
 .books-container {
@@ -27,7 +53,7 @@
 .book-container {
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   border: 1px solid rgba(8, 33, 41, 0.205);
   margin-bottom: 15px;
@@ -53,16 +79,36 @@
 }
 
 .delete-book {
-  width: 100px;
+  width: 50px;
+  text-align: left;
   margin: auto;
   margin-top: 5px;
   outline: none;
-  border: 1px solid rgba(14, 117, 148, 0.568);
+  border: none;
+  cursor: pointer;
   background: none;
   color: #4386bf;
 }
 
+.buttons {
+  display: flex;
+  flex-flow: row;
+  margin-top: 20px;
+}
+
 svg {
+  margin: auto;
+}
+
+.add-book {
+  text-align: center;
+  margin: 20px auto 20px auto;
+}
+
+.main-title {
+  color: #0290ff;
+  font-weight: bold;
+  font-size: 2em;
   margin: auto;
 }
 
@@ -71,7 +117,7 @@ svg {
   flex-flow: column;
   justify-content: center;
   padding: 0 30px 0 30px;
-  width: 50%;
+  width: auto;
   margin: auto;
 }
 
@@ -80,6 +126,7 @@ svg {
   border: 1px solid rgba(8, 33, 41, 0.205);
   margin-bottom: 20px;
   height: 20px;
+  width: 60%;
 }
 
 .invisible {
@@ -136,4 +183,130 @@ svg {
 .fade {
   visibility: hidden !important;
   opacity: 0 !important;
+}
+
+.book-fp {
+  display: flex;
+  flex-flow: column;
+  margin: 20px auto 20px auto;
+  text-align: left;
+}
+
+.percentage {
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+.percentage-text {
+  font-weight: lighter;
+  color: rgba(58, 58, 58, 0.562);
+  display: block;
+  margin-left: 20px;
+}
+
+.completion {
+  display: flex;
+  flex-flow: column;
+  margin: 20px auto 20px auto;
+  text-align: left;
+}
+
+.add-button {
+  border-radius: 3px;
+  background: rgba(21, 181, 230, 0.767);
+  color: #fff;
+  outline: none;
+  border: none;
+  height: 30px;
+  width: 100px;
+  margin: 5px auto 10px auto;
+}
+
+.chapter-title {
+  font-size: 1em;
+  color: rgba(80, 77, 77, 0.38);
+  margin-bottom: 10px;
+}
+
+.chapter-number {
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.chapter-button {
+  border-radius: 3px;
+  background: rgba(21, 181, 230, 0.767);
+  color: #fff;
+  outline: none;
+  border: none;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.form-add {
+  display: flex;
+  flex-flow: column;
+}
+
+#form-add > input,
+#form-add > select {
+  border: 1px solid rgba(170, 170, 170, 0.38);
+  height: 40px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .book-container {
+    flex-flow: row;
+  }
+
+  .navBar {
+    margin: 0;
+  }
+
+  .main-title,
+  .navlist {
+    margin: 0;
+  }
+
+  .navlist {
+    margin-left: 50px;
+  }
+
+  svg {
+    margin: 0;
+    display: inline-block;
+  }
+
+  .percentage {
+    display: inline-block;
+  }
+
+  .completion {
+    margin: auto 10px auto 10px;
+  }
+
+  .book-fp {
+    margin: 20px 0 20px 0;
+  }
+
+  .percent {
+    flex-flow: row;
+  }
+
+  #form-add {
+    flex-flow: row;
+    width: 50%;
+  }
+
+  .add-button {
+    height: 30px;
+    width: 130px;
+    margin: 5px auto 10px auto;
+  }
+
+  #form-add > select {
+    width: 30%;
+  }
 }

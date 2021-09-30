@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
   return (
     <nav className="navBar">
-      <img src="" alt="logo" />
+      <h1 className="main-title">Bookstore CMS</h1>
       <ul className="navlist">
         {links.map((link) => (
           <li key={link.id}>

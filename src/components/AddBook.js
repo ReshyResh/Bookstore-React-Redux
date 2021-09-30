@@ -40,17 +40,18 @@ const AddBook = () => {
   };
 
   return (
-    <div>
+    <div className="form-add">
+      <h2 className="add-book">Add a book </h2>
       <form id="form-add">
         <input type="text" name="title" placeholder="Title" onChange={handleChange} />
-        <label htmlFor="genre">Genre:</label> {/*eslint-disable-line*/}
-        <select id="genre" name="genre" onChange={handleChange}>
+        <select defaultValue="DEFAULT" id="genre" name="genre" onChange={handleChange}>
+          <option value="DEFAULT" disabled hidden>Category</option>
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>
           <option value="Economy">Economy</option>
           <option value="Horror">Horror</option>
         </select>
-        <button className="delete-book" onClick={submitBookToStore} type="button">Add Book</button>
+        <button className="add-button" onClick={submitBookToStore} type="button">Add Book</button>
       </form>
     </div>
   );
