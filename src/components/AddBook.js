@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { addBook } from '../redux/books/books';
+import error from './error';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,6 @@ const AddBook = () => {
   const defState = {
     id: '',
     title: '',
-    author: '',
     genre: 'Action',
   };
   const [form, setForm] = useState(defState);
@@ -22,22 +22,27 @@ const AddBook = () => {
   };
 
   const submitBookToStore = () => {
-    const newBook = {
-      id: uuidv4(), // make sure it's unique
-      title: form.title,
-      author: form.author,
-      genre: form.genre,
-      progress: 0,
-    };
-    dispatch(addBook(newBook));
-    setForm(defState);
+    if (form.title === '') {
+      error('Please fill in the title', 'red');
+    } else {
+      const newBook = {
+        id: uuidv4(), // make sure it's unique
+        title: form.title,
+        category: form.genre,
+      };
+      error('Book added', 'green');
+      dispatch(addBook(newBook));
+      setForm(defState);
+      const parent = document.getElementById('form-add');
+      parent.title.value = '';
+      parent.genre.value = 'Action';
+    }
   };
 
   return (
     <div>
       <form id="form-add">
         <input type="text" name="title" placeholder="Title" onChange={handleChange} />
-        <input type="text" name="author" placeholder="Author" onChange={handleChange} />
         <label htmlFor="genre">Genre:</label> {/*eslint-disable-line*/}
         <select id="genre" name="genre" onChange={handleChange}>
           <option value="Action">Action</option>

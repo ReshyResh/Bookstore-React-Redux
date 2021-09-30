@@ -2,23 +2,24 @@ import { useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
 import { removeBook, modal } from '../redux/books/books';
 import ProgressBar from './ProgressBar';
+import error from './error';
 
 const BookInfo = (props) => {
   const { book } = props;
   const {
-    title, author, genre, progress,
-  } = book;
+    id, title, category, progress,
+  } = book[0];
   const dispatch = useDispatch();
   return (
     <div className="book-container">
-      <p className="book-genre">{genre}</p>
+      <p className="book-genre">{category}</p>
       <p className="book-title">{title}</p>
-      <p className="book-author">{author}</p>
       <button
         className="delete-book"
         type="button"
         onClick={() => {
-          dispatch(removeBook(book.id));
+          dispatch(removeBook(id));
+          error('Book removed', 'green');
         }}
       >
         {' '}
