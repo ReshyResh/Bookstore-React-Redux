@@ -9,10 +9,12 @@ A Bookstore single page application made using React and Redux state management.
 # Built with
   - React
   - HTML
+  - Redux
   - CSS
   - Javascript
 
-
+# Live Demo
+### Click [here](https://reshyresh.github.io/Bookstore-React-Redux/)
 
 # Installation 
 
